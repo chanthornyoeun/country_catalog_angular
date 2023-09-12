@@ -8,11 +8,20 @@
     margin: 1rem;
 }
 
-.search-field {
-    width: 100%;
+.filter {
+    display: flex;
+    gap: 1rem;
     padding: 1rem;
+}
+
+.search-field {
+    flex-grow: 1;
     position: sticky;
     top: 0;
     z-index: 10;
     background: white;
+}
+
+.sort span {
+    font-weight: 500;
 }
