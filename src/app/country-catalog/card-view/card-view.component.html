@@ -1,0 +1,11 @@
+<div class="card-container">
+  <app-country-card
+    *ngFor="let country of countryList"
+    [country]="country"
+  ></app-country-card>
+</div>
+<app-pagination
+  *ngIf="pages.length > 0"
+  [pages]="pages"
+  (pageChagned)="loadData($event)"
+></app-pagination>

@@ -1,0 +1,13 @@
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+span.label {
+    font-weight: 500;
+}
+
+span.country-code {
+    margin-left: 4px;
+}
