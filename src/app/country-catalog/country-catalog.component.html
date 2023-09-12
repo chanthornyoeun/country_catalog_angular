@@ -7,15 +7,25 @@
 </h1>
 
 <div class="mat-elevation-z8 country-container">
-  <mat-form-field class="search-field" floatPlaceholder="auto">
-    <input
-      matInput
-      [formControl]="searchCtl"
-      autocomplete="off"
-      type="text"
-      placeholder="Search by Country Name"
-    />
-  </mat-form-field>
+  <div class="filter">
+    <div class="sort" *ngIf="viewType === ViewTypeEnum.CARD">
+      <span>Sort By Country Name: </span>
+      <mat-button-toggle-group [(ngModel)]="sortType">
+        <mat-button-toggle value="asc" selected> ASC </mat-button-toggle>
+        <mat-button-toggle value="desc"> DESC </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+
+    <mat-form-field class="search-field" floatPlaceholder="auto">
+      <input
+        matInput
+        [formControl]="searchCtl"
+        autocomplete="off"
+        type="text"
+        placeholder="Search by Country Name"
+      />
+    </mat-form-field>
+  </div>
 
   <mat-progress-bar
     mode="indeterminate"
@@ -29,7 +39,10 @@
       [countries]="countries"
     ></app-country-list>
     <ng-container *ngIf="viewType === ViewTypeEnum.CARD">
-      <app-card-view [countries]="countries"></app-card-view>
+      <app-card-view
+        [countries]="countries"
+        [sortType]="sortType"
+      ></app-card-view>
     </ng-container>
   </ng-container>
 

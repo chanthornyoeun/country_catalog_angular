@@ -10,6 +10,11 @@ enum ViewTypeEnum {
   LIST = 'list',
   CARD = 'card'
 }
+export type SortType = 'asc' | 'desc';
+export enum SortTypeEnum {
+  ASC = 'asc',
+  DESC = 'desc'
+}
 
 @Component({
   selector: 'app-country-catalog',
@@ -19,6 +24,7 @@ enum ViewTypeEnum {
 export class CountryCatalogComponent implements OnInit {
 
   viewType: ViewType = 'list';
+  sortType: SortType = SortTypeEnum.ASC;
   isLoading: boolean = false;
   countries: Country[] = [];
   searchCtl: FormControl = new FormControl('');
