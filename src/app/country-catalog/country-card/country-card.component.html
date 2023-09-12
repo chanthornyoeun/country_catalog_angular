@@ -1,0 +1,37 @@
+<mat-card *ngIf="country">
+  <img
+    matCardImage
+    style="aspect-ratio: 16/9"
+    width="400"
+    src="{{ country.flags.png }}"
+    alt="{{ country.flags.alt }}"
+  />
+  <mat-card-content>
+    <div class="info">
+      <h2>
+        <app-country-name [country]="country"></app-country-name>
+      </h2>
+      <div>
+        <mat-chip-list>
+          <span class="label country-code">Country Codes:</span>
+          <mat-chip>{{ country.cca2 }}</mat-chip>
+          <mat-chip>{{ country.cca3 }}</mat-chip>
+        </mat-chip-list>
+      </div>
+
+      <div>
+        <span class="label">Country Calling Codes:</span>
+        <app-country-calling-code
+          [countryCallingCodes]="country.idd"
+        ></app-country-calling-code>
+      </div>
+
+      <div class="border-countries">
+        <span class="label">Alternative Country Name:</span>
+        <app-alternative-name
+          [alternativNames]="country.altSpellings"
+        ></app-alternative-name>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

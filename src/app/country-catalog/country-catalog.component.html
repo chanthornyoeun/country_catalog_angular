@@ -1,0 +1,42 @@
+<h1 class="mat-h1">
+  Coutries Catalog
+  <mat-button-toggle-group [(ngModel)]="viewType">
+    <mat-button-toggle value="list"> LIST </mat-button-toggle>
+    <mat-button-toggle value="card"> CARD </mat-button-toggle>
+  </mat-button-toggle-group>
+</h1>
+
+<div class="mat-elevation-z8 country-container">
+  <mat-form-field class="search-field" floatPlaceholder="auto">
+    <input
+      matInput
+      [formControl]="searchCtl"
+      autocomplete="off"
+      type="text"
+      placeholder="Search by Country Name"
+    />
+  </mat-form-field>
+
+  <mat-progress-bar
+    mode="indeterminate"
+    color="primary"
+    *ngIf="isLoading"
+  ></mat-progress-bar>
+
+  <ng-container *ngIf="!isLoading && countries.length > 0">
+    <app-country-list
+      *ngIf="viewType === ViewTypeEnum.LIST"
+      [countries]="countries"
+    ></app-country-list>
+    <ng-container *ngIf="viewType === ViewTypeEnum.CARD">
+      <app-card-view [countries]="countries"></app-card-view>
+    </ng-container>
+  </ng-container>
+
+  <span style="padding-bottom: 1rem; text-align: center; display: block">
+    <ng-container *ngIf="isLoading"> Loading... </ng-container>
+    <ng-container *ngIf="searchCtl.value && countries.length <= 0"
+      >No country found</ng-container
+    >
+  </span>
+</div>
