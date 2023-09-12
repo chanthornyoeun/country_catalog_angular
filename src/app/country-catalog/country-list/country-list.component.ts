@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { CountryService } from 'src/app/services/country.service';
 import { debounceTime } from 'rxjs/operators';
 import { Country } from 'src/app/models/country.model';
+import { CountryDetailDialogService } from '../country-detail-dialog.service';
 
 @Component({
   selector: 'app-country-list',
@@ -24,6 +25,7 @@ export class CountryListComponent implements OnInit, AfterViewInit {
 
   constructor(
     private countryService: CountryService,
+    private countryDetailDialogService: CountryDetailDialogService
   ) { }
 
   ngOnInit(): void {
@@ -60,6 +62,10 @@ export class CountryListComponent implements OnInit, AfterViewInit {
       .subscribe((value: string) => {
         this.dataSource.filter = value.trim();
       });
+  }
+
+  viewCountryDetail(countryCode: string) {
+    this.countryDetailDialogService.openDialog(countryCode);
   }
 
 }

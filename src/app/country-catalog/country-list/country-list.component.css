@@ -15,6 +15,12 @@ table {
     padding: 1rem;
 }
 
+.country-name:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: blue;
+}
+
 .mat-paginator-sticky {
     bottom: 0px;
     position: sticky;

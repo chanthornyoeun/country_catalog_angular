@@ -6,6 +6,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -19,6 +22,9 @@ import { MatTableModule } from '@angular/material/table';
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonModule,
+    MatTooltipModule,
+    MatDialogModule,
   ]
 })
 export class MaterialModule { }

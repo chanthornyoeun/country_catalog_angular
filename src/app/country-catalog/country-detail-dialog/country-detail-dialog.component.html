@@ -1,0 +1,46 @@
+<h1 matDialogTitle>
+  <div class="title-container">
+    <span>Country Info</span>
+    <span class="btn-close" matDialogClose matTooltip="Close Dialog">X</span>
+  </div>
+</h1>
+
+<mat-dialog-content>
+  <ng-container *ngIf="country$ | async as country">
+    <div class="container">
+      <img
+        style="aspect-ratio: 16/9"
+        width="400"
+        src="{{ country.flags.png }}"
+        alt="{{ country.flags.alt }}"
+      />
+
+      <div class="info">
+        <h2>{{ country.name.official }}</h2>
+        <div>
+          <mat-chip-list>
+            <span class="label country-code">Country Codes:</span>
+            <mat-chip>{{ country.cca2 }}</mat-chip>
+            <mat-chip>{{ country.cca3 }}</mat-chip>
+          </mat-chip-list>
+        </div>
+        <div><span class="label">Region:</span> {{ country.region }}</div>
+        <div>
+          <span class="label">Population:</span>
+          {{ country.population | number }}
+        </div>
+        <div><span class="label">Capitals:</span> {{ country.capital }}</div>
+
+        <div class="border-countries">
+          <span class="label">Border Countries:</span>
+          <mat-chip-list>
+            <mat-chip *ngFor="let borderCountry of country.borders">{{
+              borderCountry
+            }}</mat-chip>
+          </mat-chip-list>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <span *ngIf="isLoading">Loading...</span>
+</mat-dialog-content>
