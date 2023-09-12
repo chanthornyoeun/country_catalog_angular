@@ -1,0 +1,22 @@
+table {
+    width: 100%;
+}
+
+.table-container {
+    margin: 1rem;
+}
+
+.mat-cell {
+    min-width: 120px;
+}
+
+.search-field {
+    width: 100%;
+    padding: 1rem;
+}
+
+.mat-paginator-sticky {
+    bottom: 0px;
+    position: sticky;
+    z-index: 10;
+}
